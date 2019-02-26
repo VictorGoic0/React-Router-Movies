@@ -5,8 +5,8 @@ const MovieCard = props => {
 
   const { title, director, id, metascore, stars } = props.movie;
   return (
-    <Link to={`/movies/${props.movie.id}`}>
-      <div className="save-wrapper">
+    <div className="save-wrapper">
+      <Link to={`/movies/${id}`}>
         <div className="movie-card">
           <h2>{title}</h2>
           <div className="movie-director">
@@ -23,9 +23,9 @@ const MovieCard = props => {
             </div>
           ))}
         </div>
-        <div className="save-button">Save</div>
-      </div>
-    </Link>
+      </Link>
+      <div className="save-button" onClick={() => props.addToSavedList(props.movie)}>Save</div>
+    </div>
   )
 };
 
